@@ -1,0 +1,21 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class PuanArtirici : MonoBehaviour
+{
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name == "Player")
+        {
+            GameObject yaziObjesi = GameObject.Find("SkorYazisi");
+            
+            Text yazi = yaziObjesi.GetComponent<Text>();
+
+            int puan = int.Parse(yazi.text);
+            
+            puan++;
+            
+            yazi.text = puan.ToString();
+        }
+    }
+}
