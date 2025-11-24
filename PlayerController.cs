@@ -5,16 +5,18 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float yerCekimiGucu = 3f;
-    
     private bool oyunBitti = false;
+
+    public AudioClip ziplamaSesi;
+    public AudioClip olmeSesi;
+    private AudioSource audioSource;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
+        audioSource = GetComponent<AudioSource>();
 
         Time.timeScale = 1; 
-        
         rb.gravityScale = yerCekimiGucu;
     }
 
@@ -29,10 +31,14 @@ public class PlayerController : MonoBehaviour
             return; 
         }
 
-
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             rb.gravityScale *= -1;
+            
+            if (ziplamaSesi != null) 
+            {
+                audioSource.PlayOneShot(ziplamaSesi);
+            }
         }
 
         if (transform.position.y > 10 || transform.position.y < -10)
@@ -48,7 +54,12 @@ public class PlayerController : MonoBehaviour
 
     void OyunuDurdur()
     {
-        oyunBitti = true;
-        Time.timeScale = 0;
+        if (oyunBitti == false && olmeSesi != null)
+        {
+             audioSource.PlayOneShot(olmeSesi);
+        }
+
+        oyunBitti = true; 
+        Time.timeScale = 0; 
     }
 }
