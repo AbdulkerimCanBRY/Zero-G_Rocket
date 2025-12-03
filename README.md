@@ -1,37 +1,37 @@
 # 🌌 Zero-G_Rocket
 
-**Zero-G_Rocket**, Unity oyun motoru kullanılarak geliştirilmiş, klasik "Flappy" mekaniklerini **yerçekimi manipülasyonu** (G-Switch tarzı) ile birleştiren sonsuz bir arcade oyunudur.
+**Zero-G Rocket** is an endless arcade game developed using the Unity game engine, combining classic "Flappy" mechanics with **gravity manipulation** (G-Switch style).
 
 
-## 🎮 Oynanış ve Özellikler
+## 🎮 Gameplay and Features
 
-Bu oyunda amaç zıplamak değil, yerçekimini bükmek!
+The goal in this game isn't to jump, but to bend gravity!
 
-* **Gravity Switch Mekaniği:** Ekrana her dokunduğunuzda yerçekimi tersine döner.
-* **Sonsuz Döngü:** Prosedürel olarak üretilen Sci-Fi engeller ve sonsuz arka plan.
-* **High Score Sistemi:** `PlayerPrefs` kullanılarak geliştirilen yerel skor kayıt sistemi.
-* **Görsel Efektler:**
-    * Parallax (sonsuz kayan) arka plan.
-* **Dinamik Zorluk:** Reflekslere dayalı hitbox tasarımı.
+* **Gravity Switch Mechanics:** Gravity reverses with every touch of the screen.
+* **Infinite Loop:** Procedurally generated sci-fi obstacles and infinite backgrounds.
+* **High Score System:** Local score recording system developed using `PlayerPrefs`.
+* **Visual Effects:**
+* Parallax (infinitely scrolling) background.
+* **Dynamic Difficulty:** Hitbox design based on reflexes.
 
-## 🕹️ Kontroller
+## 🕹️ Controls
 
-| Tuş / Eylem | Fonksiyon |
+| Key / Action | Function |
 | :--- | :--- |
-| **Space (Boşluk)** | Yerçekimini Değiştir |
-| **Sol Tık (Mouse)** | Yerçekimini Değiştir |
-| **Space (Ölünce)** | Yeniden Başlat |
+| **Space** | Toggle Gravity |
+| **Left Click (Mouse)** | Toggle Gravity |
+| **Space (On Death)** | Restart |
 
-## 🛠️ Kullanılan Teknolojiler
+## 🛠️ Technologies Used
 
-* **Oyun Motoru:** Unity 2022.x (2D Core)
-* **Dil:** C#
-* **Öne Çıkan Yapılar:**
-    * Unity Physics 2D (Rigidbody & Colliders)
-    * Coroutines (Ölüm efektleri için)
-    * Prefab & Instantiation (Sonsuz boru üretimi için)
-    * UI Management
+* **Game Engine:** Unity 2022.x (2D Core)
+* **Language:** C#
+* **Featured Structures:**
+* Unity Physics 2D (Rigidbody & Colliders)
+* Coroutines (for death effects)
+* Prefab & Instantiation (for infinite pipe generation)
+* UI Management
 
 
 ---
-**Geliştirici:** Abdulkerim Can / AbdulkerimCanBRY
+**Developer:** Abdulkerim Can / AbdulkerimCanBRY
