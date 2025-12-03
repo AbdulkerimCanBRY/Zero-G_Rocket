@@ -6,6 +6,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     public float yerCekimiGucu = 3f;
     private bool oyunBitti = false;
+    
+    private bool oyunBasladi = false;
+    public GameObject baslamaYazisi;
+    public Uretici ureticiScripti; 
 
     public AudioClip ziplamaSesi;
     public AudioClip olmeSesi;
@@ -17,7 +21,11 @@ public class PlayerController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         Time.timeScale = 1; 
-        rb.gravityScale = yerCekimiGucu;
+        
+        rb.gravityScale = 0; 
+        baslamaYazisi.SetActive(true); 
+        ureticiScripti.enabled = false; 
+        oyunBasladi = false;
     }
 
     void Update()
@@ -31,20 +39,36 @@ public class PlayerController : MonoBehaviour
             return; 
         }
 
+        if (oyunBasladi == false)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            {
+                Baslat();
+            }
+            return; 
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             rb.gravityScale *= -1;
             
-            if (ziplamaSesi != null) 
-            {
-                audioSource.PlayOneShot(ziplamaSesi);
-            }
+            if (ziplamaSesi != null) audioSource.PlayOneShot(ziplamaSesi);
         }
 
         if (transform.position.y > 10 || transform.position.y < -10)
         {
             OyunuDurdur();
         }
+    }
+
+    void Baslat()
+    {
+        oyunBasladi = true;
+        baslamaYazisi.SetActive(false); 
+        ureticiScripti.enabled = true;  
+        rb.gravityScale = yerCekimiGucu; 
+        
+        if (ziplamaSesi != null) audioSource.PlayOneShot(ziplamaSesi);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
