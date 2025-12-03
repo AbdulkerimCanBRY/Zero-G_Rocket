@@ -1,27 +1,21 @@
 using UnityEngine;
 
-public class ArkaPlanKaydirma : MonoBehaviour
+public class TekliArkaPlan : MonoBehaviour
 {
-    public float hiz = 2f;
-    public float kacResimVar = 3f;
+    public float hiz = 0.5f; 
     
-    private float resimGenisligi;
+    private Material mat;
 
     void Start()
     {
-        resimGenisligi = GetComponent<SpriteRenderer>().bounds.size.x;
+        mat = GetComponent<Renderer>().material;
     }
 
     void Update()
     {
-        transform.Translate(Vector3.left * hiz * Time.deltaTime);
+        float offset = Time.time * hiz;
+        
 
-        if (transform.position.x < -resimGenisligi)
-        {
-            float sicramaMesafesi = resimGenisligi * kacResimVar;
-            
-            Vector3 yeniKonum = new Vector3(transform.position.x + sicramaMesafesi - 4f, transform.position.y, transform.position.z);
-            transform.position = yeniKonum;
-        }
+        mat.mainTextureOffset = new Vector2(offset, 0);
     }
 }
